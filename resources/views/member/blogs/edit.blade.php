@@ -29,21 +29,20 @@
                             </div>
                             <div>
                              <x-input-label for="description" value="Description" />
-                             <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" value="{{ old('description',$data->description) }}/>
+                             <x-text-input id="description" name="description" type="text" class="mt-1 block w-full" value="{{ old('description',$data->description) }} "/>
                             </div>
                             <div>
                             <x-input-label for="file_input" value="Thumbnail" class="text-white" />
                             <input type="file" class="w-full border border-gray-300 rounded-md dark:border-gray-700 dark:bg-gray-800  dark:text-white">
                             </div>
                             <div>
-                                <input id="x" type="hidden" name="content" value="{{ old('content', $data->content) }}">
-                                <trix-editor input="x" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm min-h-80 text-white"></trix-editor>
+                            <x-textarea-trix value="{{ $data->content }}" id="x" name="content" />
                             </div>
                             <div>
-                                <select name="status">
-                                <option value="draft" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm  text-black">Simpam sebagi darft</option>
-                                <option value="publish" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm  text-black">Publish</option>
-                                </select>
+                               <x-select name='status'>
+                                   <option value="draft"{{(old('status',$data->status)=='draft')?'selected':''}}>Simpam sebagi darft</option>
+                                   <option value="publish" {{(old('status',$data->status)=='published')?'selected':''}}>Publish</option>
+                               </x-select>
                             </div>
                             <div class="flex items-center gap-4">
                                 <a href="{{ route('member.blogs.index') }}">

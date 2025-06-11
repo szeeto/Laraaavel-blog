@@ -15,12 +15,18 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         $judul = [
-            'indonesia tanah airku',
-            'tanah tumpah darahku',
-            'disanalah aku berdiri',
-            'jadi pandu ibuku',
-            'indonesia kebangsaanku',
-            'indonesia kebangsaanku',
+           'Indonesia Merdeka',
+           'internet di Indonesia',
+           'Perkembangan Teknologi Informasi',
+           'Kebudayaan Indonesia',
+           'Pendidikan di Era Digital',
+           'Ekonomi Digital di Indonesia',
+           'Perubahan Iklim dan Dampaknya',
+           'Kesehatan Masyarakat',
+           'Transportasi Modern',
+           'Pariwisata Indonesia',
+           'Pertanian Berkelanjutan',
+           'Inovasi Teknologi',
         ];
 
         foreach ($judul as $j) {
@@ -34,8 +40,8 @@ class PostSeeder extends Seeder
             Post::create([
                 'title'=> $j,
                 'slug' => $slug,
-                'description'=> "Deskripsi untuk $j",
-                'content' => "Konten untuk $j",
+                'description'=> " $j",
+                'content' => " $j",
                 'user_id' => 1,
                 'status'=> 'published',
             ]);
