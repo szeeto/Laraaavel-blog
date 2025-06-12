@@ -20,10 +20,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/member/blogs',[BlogController::class, 'index']);
     Route::get('/member/blogs/{post}/edit',[BlogController::class, 'edit']);
 
-    route::resource('member/blogs', BlogController::class)->names([
-        'index' => 'member.blogs.index',
-        'edit' => 'member.blogs.edit',
-    ]);
+    Route::resource('member/blogs', BlogController::class)
+        ->names([
+            'index' => 'member.blogs.index',
+            'edit' => 'member.blogs.edit',
+            'update' => 'member.blogs.update'
+        ])
+        ->parameters([
+            'blogs' => 'post'
+        ]);
 });
 
 require __DIR__.'/auth.php';

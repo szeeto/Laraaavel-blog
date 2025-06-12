@@ -40,8 +40,8 @@ class PostSeeder extends Seeder
             Post::create([
                 'title'=> $j,
                 'slug' => $slug,
-                'description'=> " $j",
-                'content' => " $j",
+                'description'=> "Deskripsi $j",
+                'content' => "Konten $j",
                 'user_id' => 1,
                 'status'=> 'published',
             ]);

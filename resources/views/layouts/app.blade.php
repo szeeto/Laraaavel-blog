@@ -25,6 +25,22 @@
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
+                        @if ($errors->any())
+                         <div class="max-w-7xl mx-auto bg-red-500 p-3 mt-3 text-white rounded-md">
+                            <ul>
+                                 @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            </ul>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            @session('success')
+                    <div class="max-w-7xl mx-auto bg-green-500 p-3 mt-3 text-white rounded-md">
+                        {{ session('success') }}
+                    </div>
+            @endsession
                     </div>
                 </header>
             @endisset

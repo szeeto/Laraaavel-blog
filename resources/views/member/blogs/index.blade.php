@@ -20,7 +20,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $value) 
+                            @foreach ($data as $value)
                                                             <tr>
                                 <td class="border px-6 py-4 text-center dark:border-gray-700">{{ $data->firstItem() + $loop->index }}</td>
                                 <td class="border px-6 py-4 dark:border-gray-700">
@@ -32,7 +32,7 @@
                                 <td class="border px-6 py-4 text-center text-sm hidden lg:table-cell text-gray-400 dark:border-gray-700">{{ $value->created_at->isoFormat('dddd, D MMMM Y') }}</td>
                                 <td class="border px-6 py-4 text-center text-sm hidden lg:table-cell text-gray-400 dark:border-gray-700">   {{ $value->status }} </td>
                                 <td class="border px-6 py-4 text-center dark:border-gray-700">
-                                    <a href='{{ route("member.blogs.edit", ['blog' => $value->id]) }}' class="text-blue-400 hover:text-blue-300 px-2">edit</a>
+                                    <a href='{{ route("member.blogs.edit", ['post' => $value->id]) }}' class="text-blue-400 hover:text-blue-300 px-2">edit</a>
                                     <a href='' class="text-blue-400 hover:text-blue-300 px-2">lihat</a>
                                     <button type='submit' class='text-red-500 hover:text-red-400 px-2'>
                                         hapus

@@ -58,7 +58,40 @@ class BlogController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:4096'
+        ],[
+            'title.required' => 'Judul wajib diisi',
+            'content.required' => 'Konten wajib diisi',
+            'thumbnail.image' => 'Harus berupa gambar',
+            'thumbnail.mimes' => 'Harus berupa file JPG, JPEG, atau PNG',
+            'thumbnail.max' => 'Ukuran file maksimal 4MB'
+        ]);
+
+        if ($request->hasFile('thumbnail')){
+            $image = $request->file('thumbnail');
+            $image_name = time()."_".$image->getClientOriginalName();
+            $destinationPath = public_path('thumbnails');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            $image->move($destinationPath, $image_name);
+        } else {
+            $image_name = $post->thumbnail;
+        }
+
+        $data=[
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+            'status' => $request->status,
+            'thumbnail' => isset($image_name) ? $image_name : $post->thumbnail,
+        ];
+
+        Post::where('id',$post->id)->update($data);
+        return redirect()->route('member.blogs.index')->with('success','Data berhasil diupdate');
     }
 
     /**
