@@ -15,18 +15,14 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         $judul = [
-           'Indonesia Merdeka',
-           'internet di Indonesia',
-           'Perkembangan Teknologi Informasi',
-           'Kebudayaan Indonesia',
-           'Pendidikan di Era Digital',
-           'Ekonomi Digital di Indonesia',
-           'Perubahan Iklim dan Dampaknya',
-           'Kesehatan Masyarakat',
-           'Transportasi Modern',
-           'Pariwisata Indonesia',
-           'Pertanian Berkelanjutan',
-           'Inovasi Teknologi',
+           'Angular',
+           'React.Js',
+           'Next.Js',
+           'Django',
+           'Kotlin',
+           'Swifft',
+           'Laravel',
+           
         ];
 
         foreach ($judul as $j) {
